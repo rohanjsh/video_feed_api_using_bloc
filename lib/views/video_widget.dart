@@ -55,7 +55,9 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
       future: _initializeVideoPlayerFuture,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
-          return VideoPlayer(_controller);
+          return ClipRRect(
+            borderRadius: BorderRadius.circular(18),
+            child: VideoPlayer(_controller));
         } else {
           return const Center(
             child: CircularProgressIndicator.adaptive(

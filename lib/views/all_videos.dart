@@ -92,36 +92,33 @@ class AllVideos extends StatelessWidget {
                       ),
                       child: Column(
                         children: [
-                          Container(
+                          SizedBox(
                             // aspectRatio: 1 / 16,
                             height: 200,
-                            width: double.infinity,
+                            // width: double.infinity,
 
                             // color: Colors.greenAccent,
 
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                  color: Colors.greenAccent, width: 1.5),
-                              borderRadius: BorderRadius.circular(20),
+                            // decoration: BoxDecoration(
+                            //   border: Border.all(
+                            //       color: Colors.greenAccent, width: 1.5),
+                            //   borderRadius: BorderRadius.circular(20),
                              
-                            ),
+                            // ),
 
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(18),
-                              child: LayoutBuilder(
-                                builder: (BuildContext context,
-                                    BoxConstraints constraints) {
-                                  return InViewNotifierWidget(
-                                    id: '$index',
-                                    builder: (BuildContext context,
-                                        bool isInView, Widget? child) {
-                                      return VideoPlayerWidget(
-                                          play: isInView,
-                                          url: state.videos[index].sources[0]);
-                                    },
-                                  );
-                                },
-                              ),
+                            child: LayoutBuilder(
+                              builder: (BuildContext context,
+                                  BoxConstraints constraints) {
+                                return InViewNotifierWidget(
+                                  id: '$index',
+                                  builder: (BuildContext context,
+                                      bool isInView, Widget? child) {
+                                    return VideoPlayerWidget(
+                                        play: isInView,
+                                        url: state.videos[index].sources[0]);
+                                  },
+                                );
+                              },
                             ),
                           ),
                           const SizedBox(height: 10),
